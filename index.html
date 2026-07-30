@@ -56,6 +56,17 @@
   </iframe>
 
   <script>
+    fetch('https://script.google.com/macros/s/.../exec', {
+      method: 'GET', // or 'POST'
+      credentials: 'omit', // 👈 THIS PREVENTS GOOGLE MULTI-ACCOUNT COOKIE CONFLICTS
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8',
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
+
+    
     const fsBtn = document.getElementById('fullscreen-btn');
 
     fsBtn.addEventListener('click', () => {
